@@ -1,10 +1,9 @@
 import React from 'react';
+import { Provider as ReduxProvider } from 'react-redux';
+import store from './store'
 
-function App() {
-  return (
-    <>
-    </>
-  );
-}
-
-export default App;
+export default () => (
+  <ReduxProvider store = {store}>
+    
+  </ReduxProvider>
+);
