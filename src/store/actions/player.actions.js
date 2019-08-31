@@ -3,6 +3,8 @@ import { fetchArtists, fetchAlbums } from "../../repositories/artists.repository
 export const SET_ARTISTS = '[PLAYER] SET_ARTISTS';
 export const SET_ALBUMS  = '[PLAYER] SET_ALBUMS';
 export const SET_SONGS   = '[PLAYER] SET_SONGS';
+export const SET_SELECTED_ARTIST   = '[PLAYER] SET_SELECTED_ARTIST';
+export const SET_SELECTED_ALBUM    = '[PLAYER] SET_SELECTED_ALBUM';
 
 /*************************************
  ********   Action creators **********
@@ -23,6 +25,16 @@ export const setSongs = (data) => ({
     data,
 });
 
+export const setSelectedArtist = (data) => ({
+    type : SET_SELECTED_ARTIST,
+    data,
+});
+
+export const setSelectedAlbum = (data) => ({
+    type : SET_SELECTED_ALBUM,
+    data,
+}) 
+
 
 /*************************************
  ********   Async functions **********
@@ -31,13 +43,16 @@ export const setSongs = (data) => ({
 /**
  * This function allows to fetch all artists only if they are not listed yet.
  */
-export const listArtists = () => async (dispatch, getState) => {
+export const listArtists = (artist) => async (dispatch, getState) => {
     const {player={}} = getState();
     const {artists=[]} = player;
     try {
         if(artists.length === 0 ) {
             const newArtists = await fetchArtists();
             dispatch(setArtists(newArtists.data));
+            if(artist) { // If send the selected artist, then we extract it.
+                dispatch(setSelectedArtist(newArtists.data.find(item => item.id === parseInt(artist))))
+            }
         } else {
             return artists;
         }
@@ -54,7 +69,7 @@ export const listArtists = () => async (dispatch, getState) => {
  * is ok. 
  * @param {*} artist 
  */
-export const listAlbums = (artist) => async (dispatch, getState) => {
+export const listAlbums = (artist, album) => async (dispatch, getState) => {
     const {player={}} = getState();
     const {albums={}} = player;
     try {
@@ -64,6 +79,9 @@ export const listAlbums = (artist) => async (dispatch, getState) => {
                 ...albums,
                 [artist] : newAlbums.data,
             }));
+            if(album) {
+                dispatch(setSelectedAlbum(newAlbums.data.find(item => item.id === parseInt(album))));
+            }
             return newAlbums.data;
         } else {
             return albums[artist];

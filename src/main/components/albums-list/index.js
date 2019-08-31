@@ -19,6 +19,9 @@ class AlbumList extends React.Component {
 
     listData = async () => {
         const {params} = this.props.match;
+        // If there are not artist we loadthem, we need theme to print the selected artist.
+        if(!this.props.artists.length) this.props.listArtists(params.artist);
+
         if(params.artist) {
             try {
                 const albums = await this.props.listAlbums(params.artist);
@@ -32,8 +35,22 @@ class AlbumList extends React.Component {
         } 
     }
 
-    onSelectItem = ({id}) => {
-        this.props.history.push(`/songs/list/${id}`);
+    onSelectItem = (album) => {
+        const {
+            setSelectedArtist,  
+            setSelectedAlbum, 
+            artists=[], 
+            history,
+            match,
+        } = this.props;
+        let selectedArtist = this.props.selectedArtist;
+        // This is only to ensure that if the page is reloaded we can get the selected artist.
+        if(!selectedArtist) {
+            selectedArtist = artists.find(item => item.id === parseInt(match.params.artist));
+            setSelectedArtist(selectedArtist);
+        }
+        setSelectedAlbum(album);
+        history.push(`/songs/list/${selectedArtist.id}/${album.id}`);
     };
 
     render() {

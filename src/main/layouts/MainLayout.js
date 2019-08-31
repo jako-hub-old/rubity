@@ -9,6 +9,7 @@ import Navigation from '../../core/Navigation'
 export default () => (
     <div className = "flex justify-center w-full items-start main-layout">
         { /* If you want to add a general behaviour or styles write it here */ }
-        <Navigation />
+        <Navigation 
+        />
     </div>
 );

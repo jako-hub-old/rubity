@@ -22,8 +22,8 @@ html, body, #root {
 
 
 .artist-item, .album-item {
-    width : 150px;
-    height: 150px;
+    width : 170px;
+    height: 170px;
     margin-right : 30px;
     margin-left : 30px;
     margin-bottom: 20px;
@@ -39,7 +39,7 @@ html, body, #root {
 
 
 .album-item-wrapper {
-    width : 160px;
+    width : 180px;
     margin-right : 20px;
     margin-left : 20px;
     margin-bottom: 30px;
@@ -68,6 +68,7 @@ html, body, #root {
     color : #FFF;
     z-index: 1;
     text-align: center;
+    font-size: 0.8rem;
 }
 .album-item-wrapper > p {
     color: #FFF;

@@ -5,18 +5,24 @@ import {
     listAlbums,
     listSongs,
     listArtists,
+    setSelectedAlbum,
+    setSelectedArtist,
 } from '../store/actions/player.actions';
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     listAlbums,
     listSongs,
     listArtists,
+    setSelectedAlbum,
+    setSelectedArtist,
 }, dispatch);
 
-const mapStateToProps = ({ player:{artists=[], songs=[], albums=[]} }) => ({
+const mapStateToProps = ({ player:{artists=[], selectedArtist, selectedAlbum, songs=[], albums=[]} }) => ({
     artists,
     songs,
     albums,
+    selectedAlbum,
+    selectedArtist,
 });
 
 /**

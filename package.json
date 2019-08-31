@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
+    "classnames": "^2.2.6",
     "eslint-utils": "^1.4.1",
     "express": "^4.17.1",
     "express-favicon": "^2.0.1",
@@ -19,7 +20,7 @@
   },
   "scripts": {
     "start-dev": "yarn run tailwind:css && react-scripts start",
-    "start" : "node server.js",
+    "start": "node server.js",
     "build": "yarn run tailwind:css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

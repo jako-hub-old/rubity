@@ -21,8 +21,9 @@ class ArtistsList extends React.PureComponent {
         }
     }
 
-    onSelectItem = ({id}) => {
-        this.props.history.push(`/albums/list/${id}`);
+    onSelectItem = (artist) => {
+        this.props.setSelectedArtist(artist);
+        this.props.history.push(`/albums/list/${artist.id}`);
     };
 
     render() {

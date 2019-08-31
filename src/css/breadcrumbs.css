@@ -1,0 +1,20 @@
+.breadcrumb-root {
+    margin-bottom : 20px;
+    padding : 10px 30px;
+}
+
+.breadcrumb-item {
+    background-color: #0e0e0e;
+    border-radius: 20px;
+    align-self: stretch;
+    display: inline-block;
+    padding : 5px 20px;
+    color : #FFF;
+    cursor: auto;
+    margin-right : 10px;
+}
+
+.breadcrumb-item.current-item {
+    background-color: transparent;
+    color: #727272
+}

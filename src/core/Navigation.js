@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
     BrowserRouter,
     Switch,
@@ -32,5 +33,10 @@ const Navigation = ({beforeNavigation, afterNavigation}) => (
         { afterNavigation }
     </BrowserRouter>
 );
+
+Navigation.propTypes = {
+    beforeNavigation    : PropTypes.any,
+    afterNavigation     : PropTypes.any,
+};
 
 export default Navigation;
