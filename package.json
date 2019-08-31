@@ -5,6 +5,9 @@
   "dependencies": {
     "axios": "^0.19.0",
     "eslint-utils": "^1.4.1",
+    "express": "^4.17.1",
+    "express-favicon": "^2.0.1",
+    "path": "^0.12.7",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -15,7 +18,8 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "yarn run tailwind:css && react-scripts start",
+    "start-dev": "yarn run tailwind:css && react-scripts start",
+    "start": "node server.js",
     "build": "yarn run tailwind:css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
