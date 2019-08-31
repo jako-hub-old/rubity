@@ -19,3 +19,34 @@ html, body, #root {
     background-color: #151515;
     min-height: 100vh;
 }
+
+.artist-item {
+    width : 150px;
+    height: 150px;
+    margin-right : 30px;
+    margin-left : 30px;
+    margin-bottom: 20px;
+    border-radius: 100%;
+    background-color: rgb(80, 80, 80);
+    background-size: cover;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.artist-item:before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(8, 8, 8, 0.48);
+    position: absolute;
+    border-radius: 100%;
+}
+.artist-item > p {
+    color : #FFF;
+    z-index: 1;
+    text-align: center;
+}

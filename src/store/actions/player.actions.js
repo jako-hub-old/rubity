@@ -1,3 +1,5 @@
+import { fetchArtits } from "../../repositories/artists.repository";
+
 export const SET_ARTISTS = '[PLAYER] SET_ARTISTS';
 export const SET_ALBUMS  = '[PLAYER] SET_ALBUMS';
 export const SET_SONGS   = '[PLAYER] SET_SONGS';
@@ -26,8 +28,22 @@ export const setSongs = (data) => ({
  ********   Async functions **********
  *************************************/
 
-export const listArtists = () => async (dispatch) => {
-
+/**
+ * This function allows to fetch all artists only if they are not listed yet.
+ */
+export const listArtists = () => async (dispatch, getState) => {
+    const {player={}} = getState();
+    const {artists=[]} = player;
+    try {
+        if(artists.length === 0 ) {
+            const newArtists = await fetchArtits();
+            dispatch(setArtists(newArtists.data));
+        } else {
+            return artists;
+        }
+    } catch (e) {
+        throw e;
+    }
 };
 
 export const listAlbums = (artists) => async (dispatch) => {

@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import routes from '../config/routes';
 import HomeScreen from '../main/screens/HomeScreen';
+import NotFound from '../main/screens/NotFound';
 
 /**
  * This compoent allows to render the application navigation. it also allows you
@@ -17,7 +18,7 @@ const Navigation = ({beforeNavigation, afterNavigation}) => (
     <BrowserRouter>
         { beforeNavigation }
         <Switch>
-            <Route path = '/' component = { HomeScreen } />
+            <Route path = '/' component = { HomeScreen } exact />
             {routes.map((route, key) => (
                 <Route 
                     key         = { key } 
@@ -26,6 +27,7 @@ const Navigation = ({beforeNavigation, afterNavigation}) => (
                     exact
                 />
             ))}
+            <Route component = { NotFound } />
         </Switch>
         { afterNavigation }
     </BrowserRouter>

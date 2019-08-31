@@ -10,7 +10,7 @@ import {
 
 export default [
     {path : '/artsts/list', component : ArtistsListScreen },
-    {path : '/albums/:artist/list', component : AlbumsListScreen },
-    {path : '/songs/:album/list', component : SongsListScreen },
-    {path : '/songs/:song/play', component : PlayerScreen }
+    {path : '/albums/list/:artist', component : AlbumsListScreen },
+    {path : '/songs/list/:album', component : SongsListScreen },
+    {path : '/songs/play/:song', component : PlayerScreen }
 ];
