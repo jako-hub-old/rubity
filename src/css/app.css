@@ -1,0 +1,21 @@
+/**
+ * I usually don't do this, add styles into a file, I prefer scope css stylesheets or even 
+ * better, cssinjs, but this is a small application.
+ * @author Jorge Alejandro Quiroz Serna <jakop.box@gmail.com>
+ */
+
+html, body, #root {
+    min-height: 100%;
+}
+#root {
+    min-height: 100vh;
+}
+.main-layout {
+    background-color: #0e0e0e;
+    min-height: 100vh;
+}
+
+.screen-wrapper {
+    background-color: #151515;
+    min-height: 100vh;
+}
