@@ -1,4 +1,4 @@
-import { fetchArtits, fetchAlbums } from "../../repositories/artists.repository";
+import { fetchArtists, fetchAlbums } from "../../repositories/artists.repository";
 
 /**
  * This validates if the Api service is building correctly the
@@ -6,7 +6,7 @@ import { fetchArtits, fetchAlbums } from "../../repositories/artists.repository"
  */
 it('repositories.artists', async () => {
     try {
-        const data = await fetchArtits();
+        const data = await fetchArtists();
         expect(data).toEqual(expect.objectContaining({
             data : expect.any(Array),
         }));
