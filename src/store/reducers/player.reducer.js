@@ -2,8 +2,8 @@ import * as Actions from '../actions/player.actions';
 
 const defaultState = {
     artists : [],
-    albums  : [],
-    songs   : [],
+    albums  : {},
+    songs   : {},
 };
 
 export default (state = defaultState, action) => {

@@ -5,6 +5,10 @@ import ArtistsListContent   from './ArtistsListContent';
 import ArtistItem           from './ArtistItem';
 import { withRouter }       from 'react-router-dom';
 
+/**
+ * This component allows to list all the artists.
+ * @author Jorge Alejandro Quiroz Serna <jakop.box@gmail.com>
+ */
 class ArtistsList extends React.PureComponent {
 
     componentDidMount() {

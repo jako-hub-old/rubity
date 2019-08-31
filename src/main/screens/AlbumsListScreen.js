@@ -1,8 +1,9 @@
 import React from 'react';
 import MainScreenLayout from './screen-layouts/MainScreenLayout';
+import { AlbumList } from '../components';
 
 export default () => (
     <MainScreenLayout>
-        <h1>Albums list </h1>
+        <AlbumList />
     </MainScreenLayout>
 );
