@@ -19,7 +19,6 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 
 const mapStateToProps = ({ player:{artists=[], selectedArtist, selectedAlbum, songs=[], albums=[]} }) => ({
     artists,
-    songs,
     albums,
     selectedAlbum,
     selectedArtist,

@@ -1,4 +1,4 @@
-import { fetchArtists, fetchAlbums } from "../../repositories/artists.repository";
+import { fetchArtists, fetchAlbums, fetchSongs } from "../../repositories/artists.repository";
 
 export const SET_ARTISTS = '[PLAYER] SET_ARTISTS';
 export const SET_ALBUMS  = '[PLAYER] SET_ALBUMS';
@@ -91,6 +91,14 @@ export const listAlbums = (artist, album) => async (dispatch, getState) => {
     }
 };
 
-export const listSongs = () => async (dispatch) => {
-     
+/**
+ * This function list and returns songs associated to an album.
+ * @param {*} album 
+ */
+export const listSongs = (album) => async (dispatch) => {
+     try {
+        return await fetchSongs(album);
+     } catch (e) {
+         throw e;
+     }
 };

@@ -7,7 +7,7 @@ import endpoints from '../config/endpoints';
  */
 export const fetchArtists = async () => {
     try {
-        return await await Api.doGet(endpoints.artists);
+        return await Api.doGet(endpoints.artists);
     } catch (e) {
         throw e;
     }
@@ -19,7 +19,20 @@ export const fetchArtists = async () => {
  */
 export const fetchAlbums = async artist => {
     try {
-        return await await Api.doGet(endpoints.albums, { id : artist });
+        return await Api.doGet(endpoints.albums, { id : artist });
+    } catch (e) {
+        throw e;
+    }
+};
+
+/**
+ * This function allows to list all songs from an album.
+ * @param {*} album 
+ */
+export const fetchSongs = async (album) => {
+    try {
+        const response = await Api.doGet(endpoints.songs, {id : album});
+        return response.data;
     } catch (e) {
         throw e;
     }

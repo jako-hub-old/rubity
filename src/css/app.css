@@ -77,3 +77,32 @@ html, body, #root {
     font-size: 0.6rem;
     padding-top: 20px;
 }
+
+.song-item {
+    padding : 15px 30px;
+    margin-top : 40px;
+    width : 100%;
+    border-bottom-width: 1px;
+    border-bottom-color: #293e35;
+    display: flex;
+    justify-content: space-between;
+}
+
+.song-item.preview {
+    cursor: pointer;
+}
+
+.song-item > p {
+    color : #fff;
+    font-size: 1.2rem;
+}
+.song-icon {
+    color : #fff;
+}
+
+button {
+    background-color: #1db954;
+    padding: 11px 44px;
+    color : #FFF;
+    border-radius: 30px;
+}
