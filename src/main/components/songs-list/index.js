@@ -54,7 +54,6 @@ class SongsList extends React.Component {
             const songs = await listSongs(params.album);
             this.setState({
                 songs,
-                suggestedSongs : shuffleArray(songs).slice(0, 3),
             });
         } catch(e) {
             alert("Error while listing the songs");
@@ -67,6 +66,7 @@ class SongsList extends React.Component {
     onSelectSong = (selectedSong, reload) => {
         this.setState({
             selectedSong,
+            suggestedSongs : shuffleArray(this.state.songs).slice(0, 3)
         }, () => {
             if(reload) {
                 if(this.audioPlayer) {
@@ -81,8 +81,10 @@ class SongsList extends React.Component {
 
     render() {
         const {
-            songs, selectedSong, suggestedSongs,
+            songs, selectedSong,
+            suggestedSongs = [],
         } = this.state;
+        // const suggestedSongs = shuffleArray(songs).slice(0, 3);
         return (
            <SongsListContent>
                {!selectedSong && songs.map((item, key) => (
