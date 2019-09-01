@@ -9,7 +9,7 @@ import {
 } from '../main/screens';
 
 export default [
-    {path : '/artsts/list', component : ArtistsListScreen },
+    {path : '/artists/list', component : ArtistsListScreen },
     {path : '/albums/list/:artist', component : AlbumsListScreen },
     {path : '/songs/list/:artist/:album', component : SongsListScreen },
     {path : '/songs/play/:song', component : PlayerScreen }

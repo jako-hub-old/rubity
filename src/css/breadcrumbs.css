@@ -10,11 +10,12 @@
     display: inline-block;
     padding : 5px 20px;
     color : #FFF;
-    cursor: auto;
+    cursor: pointer;
     margin-right : 10px;
 }
 
 .breadcrumb-item.current-item {
     background-color: transparent;
-    color: #727272
+    color: #727272;
+    cursor: auto;
 }

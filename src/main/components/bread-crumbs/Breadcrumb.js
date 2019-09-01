@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
-const Breadcrumb = ({to, label, current}) => (
-    <div className={ classNames({'breadcrumb-item' : true, 'current-item' : current}) }>
-        {!current
-        ? (<Link to = { to }>{label}</Link>)
-        : (<p>{label}</p>)
-        }
+const Breadcrumb = ({onPress, label, current}) => (
+    <div 
+        className   = { classNames({'breadcrumb-item' : true, 'current-item' : current}) }
+        onClick     = { !current? onPress : null }
+    >
+        <p>{label}</p>
     </div>
 );
 

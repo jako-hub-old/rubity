@@ -25,6 +25,17 @@ class Breadcrumbs extends React.Component {
         }
     }
 
+    sendTo = ({type}, to) => {
+        const { selectedArtist, history } = this.props;
+        if(type === 'artist') {
+            history.push("/artists/list");
+        } else if(type === 'album') {
+            history.push(`/albums/list/${selectedArtist.id}`);
+        } else {
+            history.push(to);
+        }
+    };
+
     render() {
         const {items=[]} = this.props;
         return (
@@ -35,6 +46,7 @@ class Breadcrumbs extends React.Component {
                         label   = { this.resolveCrumbName(item)} 
                         to      = { item.to      }
                         current = { item.current }
+                        onPress = { () => this.sendTo(item, item.to) }
                     />
                 ))}
             </div>

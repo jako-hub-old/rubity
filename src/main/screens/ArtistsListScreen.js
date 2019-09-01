@@ -1,8 +1,14 @@
 import React from 'react';
 import MainScreenLayout from './screen-layouts/MainScreenLayout';
-
+import { ArtistsList } from '../components';
+import Breadcrumbs from '../components/bread-crumbs';
+const breadcrumbs = [
+    {label : "Home", to : "/"},
+    {label : "Artists", current : true},
+];
 export default () => (
     <MainScreenLayout>
-        <h1>Artists List </h1>
+        <Breadcrumbs items = { breadcrumbs } />
+        <ArtistsList />
     </MainScreenLayout>
 );
