@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SuggestedSongs from './SongsSuggestion';
+import MusicPlayer from '../MusicPlayer';
 
 const Player = ({
     onClose,
@@ -9,9 +10,9 @@ const Player = ({
     onSelectSong,
 }) => (
     <div className="w-full flex justify-center items-center flex-col">
-        <audio id = "audio-player" controls autoPlay loop>
-            <source src = { songUrl}  type="audio/mpeg" />
-        </audio>
+        <MusicPlayer
+            songUrl = { songUrl }
+        />
         <SuggestedSongs 
             songs = { songs }
             onSelectSong = { onSelectSong }

@@ -111,6 +111,20 @@ button {
     border-radius: 30px;
 }
 
+button.secondary {
+    background-color: transparent;
+    padding: 11px 44px;
+    color : #1db954;
+    border-radius: 30px;
+    border : 2px solid #1db954;
+    transition: background-color 0.6s;
+}
+
+button.secondary:focus {
+    background-color: rgba(29, 185, 84, 0.36);
+    outline: none;
+}
+
 .suggestion-item {
     background-color: #0e0e0e;
     padding : 5px 25px;

@@ -15,9 +15,13 @@ it('repositories.artists', async () => {
             data : expect.any(Array),
         }));
         const songs = await fetchSongs(1);
-        expect(songs).toEqual(expect.objectContaining({
-            data : expect.any(Array),
-        }));
+        expect(songs).toEqual(         
+            expect.arrayContaining([   
+              expect.objectContaining({
+                id: expect.any(Number) 
+              })
+            ])
+          )
     } catch(e) {
         throw e;
     }

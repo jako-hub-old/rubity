@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import withPlayerState from '../../../providers/withPlayerState';
 import FindArtistCall from './FindArtistsCall';
+import PlayRandomSong from './PlayRandomSong';
 
 class Home extends React.PureComponent {
     componentDidMount() {
@@ -28,6 +29,7 @@ class Home extends React.PureComponent {
                     artists         = { artists.slice(0, 8) }
                     onCallToAction  = { this.onCallToAction.bind(this) }
                 />
+                <PlayRandomSong/>
             </div>
         );
     }

@@ -5,8 +5,7 @@ import { withRouter }       from 'react-router-dom';
 import SongsListContent from './SongsListContent';
 import SongItem from './SongItem';
 import Player from './Player';
-
-const shuffle = array => array.sort(() => Math.random() - 0.5);
+import { shuffleArray } from '../../../utils/functions';
 
 class SongsList extends React.Component {
     state = {
@@ -45,7 +44,7 @@ class SongsList extends React.Component {
             const songs = await listSongs(params.album);
             this.setState({
                 songs,
-                suggestedSongs : shuffle(songs).slice(0, 3),
+                suggestedSongs : shuffleArray(songs).slice(0, 3),
             });
         } catch(e) {
             alert("Error while listing the songs");
