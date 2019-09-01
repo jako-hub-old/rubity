@@ -1,20 +1,21 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import '../../../css/breadcrumbs.css';
+import '../../../styles/breadcrumbs.css';
 import Breadcrumb from './Breadcrumb';
 import withPlayerState from '../../../providers/withPlayerState';
 
+/**
+ * This component handles the breadcrumb, its a simple breadcrumb, only for this project,
+ * a more complex breadcrumb handler should be different. 
+ * @author Jorge Alejandro Quiroz Serna <jakop.box@gmail.com>
+ */
 class Breadcrumbs extends React.Component {
-    constructor(props) {
-        super(props);
-        this.onPressCrumb = this.onPressCrumb.bind(this);
-    }
 
-    onPressCrumb = (crumb) => {
-
-    };
-
+    /**
+     * This function returns the breadcrumb name, it extract the data from 
+     * the selected artist and album from the storage.
+     */
     resolveCrumbName = ({type, label}) => {
         if(!type) return label;
         const { selectedArtist, selectedAlbum } = this.props;
@@ -25,6 +26,9 @@ class Breadcrumbs extends React.Component {
         }
     }
 
+    /**
+     * This function determines where to send when click on a breadcrumb option
+     */
     sendTo = ({type}, to) => {
         const { selectedArtist, history } = this.props;
         if(type === 'artist') {

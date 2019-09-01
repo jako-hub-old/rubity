@@ -3,6 +3,10 @@ import { fetchGenres, fetchRandom } from '../../../repositories/songs.repository
 import { shuffleArray } from '../../../utils/functions';
 import MusicPlayer from '../MusicPlayer';
 
+/**
+ * This component handles the random player
+ * @author JOrge Alejandro Quiroz Serna <jakop.box@gmail.com>
+ */
 class PlayRandomSong extends React.Component {
     randomPlayer = null;
 
@@ -27,6 +31,10 @@ class PlayRandomSong extends React.Component {
         }
     };
 
+    /**
+     * This function plays a random song, it attemps a couple of times,
+     * if it overpasses the attepms it stops trying to play.
+     */
     playRandomSong = async (attemps=0) => {
         this.setState({
             loading : true,
@@ -63,7 +71,7 @@ class PlayRandomSong extends React.Component {
     render() {
         const song = this.state.song;
         return (
-            <div className="w-full flex justify-center">
+            <div className = "w-full flex justify-center">
                 <div className = "mt-8">
                     {song && song.preview_url && (
                         <>
@@ -76,7 +84,12 @@ class PlayRandomSong extends React.Component {
                         </>
                     )}
                     <div className="mt-12 flex justify-center">
-                        <button className="secondary" onClick = { () => this.playRandomSong() } >Play random</button>
+                        <button 
+                            className   = "secondary" 
+                            onClick     = { () => this.playRandomSong() } 
+                        >
+                                Play random
+                        </button>
                     </div>
                 </div>
                 

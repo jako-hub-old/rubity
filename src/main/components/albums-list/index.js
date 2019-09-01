@@ -17,6 +17,9 @@ class AlbumList extends React.Component {
         this.listData();
     }
 
+    /**
+     * This function fetchs the albums and other data needed for this component.
+     */
     listData = async () => {
         const {params} = this.props.match;
         // If there are not artist we loadthem, we need theme to print the selected artist.
@@ -35,6 +38,10 @@ class AlbumList extends React.Component {
         } 
     }
 
+    /**
+     * This function is triggered when an album is selected,
+     * also it updates the selected artist if the page was reloaded.
+     */
     onSelectItem = (album) => {
         const {
             setSelectedArtist,  

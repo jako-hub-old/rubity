@@ -4,6 +4,11 @@ import withPlayerState from '../../../providers/withPlayerState';
 import FindArtistCall from './FindArtistsCall';
 import PlayRandomSong from './PlayRandomSong';
 
+/**
+ * This component contains the home presentation and a simple logic to list
+ * the initial artists and the random player.
+ * @author JOrge Alejandro Quiroz Serna <jakop.box@gmail.com>
+ */
 class Home extends React.PureComponent {
     componentDidMount() {
         this.fetchInformation();

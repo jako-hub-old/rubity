@@ -7,12 +7,18 @@ import SongItem from './SongItem';
 import Player from './Player';
 import { shuffleArray } from '../../../utils/functions';
 
+/**
+ * This component handles the songs list, 
+ * it also fetch the artists and albums if the page was reloaded
+ * @author JOrge Alejandro Quiroz Serna <jakop.box@gmail.com>
+ */
 class SongsList extends React.Component {
+    audioPlayer = null;
     state = {
-        songs   : [],
-        loading : false,
-        selectedSong : null,
-        suggestedSongs : [],
+        songs           : [],
+        loading         : false,
+        selectedSong    : null,
+        suggestedSongs  : [],
     };
 
     constructor(props) {
@@ -24,6 +30,10 @@ class SongsList extends React.Component {
         this.listData();
     }
 
+    /**
+     * This function allows to list the sons, it also fetch the artists and albums 
+     * if the page was reloaded.
+     */
     listData = async () => {
         const {
             artists,
@@ -51,14 +61,18 @@ class SongsList extends React.Component {
         }
     }
 
+    /**
+     * If a song was selected we want to reset the player.
+     */
     onSelectSong = (selectedSong, reload) => {
         this.setState({
             selectedSong,
         }, () => {
             if(reload) {
-                const audio = document.getElementById('audio-player');
-                audio.load();
-                audio.play();
+                if(this.audioPlayer) {
+                    this.audioPlayer.load();
+                    this.audioPlayer.play();
+                }
             }
         });
     };
@@ -81,10 +95,11 @@ class SongsList extends React.Component {
                ))}
                {selectedSong && (
                    <Player  
-                        onClose = { this.onClosePlayer }
-                        songUrl = { selectedSong.preview_url }
-                        songs   = { suggestedSongs }
-                        onSelectSong = { item => this.onSelectSong(item, true) }
+                        ref             = { node => this.audioPlayer = node }
+                        onClose         = { this.onClosePlayer }
+                        songUrl         = { selectedSong.preview_url }
+                        songs           = { suggestedSongs }
+                        onSelectSong    = { item => this.onSelectSong(item, true) }
                    />
                )}
            </SongsListContent>

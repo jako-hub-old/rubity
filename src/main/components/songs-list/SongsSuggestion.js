@@ -2,6 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SuggestionItem from './SuggestionItem';
 
+/**
+ * This component renders the songs suggestion.
+ * @author Jorge Alejandro Quiroz Serna <jakop.box@gmail.com>
+ * @param {*} param0 
+ */
 const SuggestedSongs = ({
     onSelectSong,
     songs=[],

@@ -1,5 +1,10 @@
 import React from 'react';
 
+/**
+ * This component contains a simple invitation to guide the user through the navigation.
+ * @author JOrge Alejandro Quiroz Serna <jakop.box@gmail.com>
+ * @param {*} param0 
+ */
 const FindArtistCall = ({artists=[], onCallToAction}) => (
     <div className="flex justify-center flex-col items-center">
         <div className="flex justify-center mt-12">
