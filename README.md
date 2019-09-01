@@ -1,4 +1,4 @@
-Hi Ayenda, i want to share to you how I solved the test, is based on the screenshots included with the test specification. 
+Hi Ayenda, i want to share with you how I solved the test, is based on the screenshots included with the test specification. 
 I tried to include every aspect that were expected to be included. 
 I create the project using create-react-app script, the folder structure is the one i use for almost every big proyect with react and react native, this folder structure allows me to share different components and funcitonalities from React and React native, avoiding re-write from scratch a lot of code. 
 
