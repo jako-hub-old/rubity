@@ -40,10 +40,12 @@ yarn test
     |      |_ layouts
     |               |_ ...  # The layouts create common wrappers for the screens.
     |
-    |_ providers            # the providers are [HOC](https://es.reactjs.org/docs/higher-order-components.html), that allows to connect with redux states and actions.
-    |_ repositories
-    |_ services
-    |_ store
-    |_ styles
-    |_ utils
+    |_ providers            # the providers are HOC (https://es.reactjs.org/docs/higher-order-components.html), that allows to connect with redux states and actions.
+    | 
+    |_ repositories         # The repositories are functions to share with another components.
+    |_ services             # The services are objects that allows to execute important functionality (Api requests, sessions and so on )
+    |
+    |_ store                # Here lies the redux states and actions
+    |_ styles               # Here you can place common styles for the application. 
+    |_ utils                # Hre you can place common and simple library functions ( string replacers, validations, what you want)
 ```
