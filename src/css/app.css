@@ -120,3 +120,10 @@ button {
     color : #fff;
     cursor: pointer;
 }
+
+.artist-item-small {
+    width : 30px;
+    height : 30px;
+    border-radius: 100%;
+    margin : 0px 3px;
+}
