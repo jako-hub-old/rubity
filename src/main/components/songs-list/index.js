@@ -6,11 +6,14 @@ import SongsListContent from './SongsListContent';
 import SongItem from './SongItem';
 import Player from './Player';
 
+const shuffle = array => array.sort(() => Math.random() - 0.5);
+
 class SongsList extends React.Component {
     state = {
         songs   : [],
         loading : false,
         selectedSong : null,
+        suggestedSongs : [],
     };
 
     constructor(props) {
@@ -42,15 +45,22 @@ class SongsList extends React.Component {
             const songs = await listSongs(params.album);
             this.setState({
                 songs,
+                suggestedSongs : shuffle(songs).slice(0, 3),
             });
         } catch(e) {
             alert("Error while listing the songs");
         }
     }
 
-    onSelectSong = (selectedSong) => {
+    onSelectSong = (selectedSong, reload) => {
         this.setState({
             selectedSong,
+        }, () => {
+            if(reload) {
+                const audio = document.getElementById('audio-player');
+                audio.load();
+                audio.play();
+            }
         });
     };
 
@@ -58,7 +68,7 @@ class SongsList extends React.Component {
 
     render() {
         const {
-            songs, selectedSong,
+            songs, selectedSong, suggestedSongs,
         } = this.state;
         return (
            <SongsListContent>
@@ -74,6 +84,8 @@ class SongsList extends React.Component {
                    <Player  
                         onClose = { this.onClosePlayer }
                         songUrl = { selectedSong.preview_url }
+                        songs   = { suggestedSongs }
+                        onSelectSong = { item => this.onSelectSong(item, true) }
                    />
                )}
            </SongsListContent>

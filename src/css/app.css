@@ -7,6 +7,10 @@
 html, body, #root {
     min-height: 100%;
 }
+.text {
+    color : #fff;
+}
+
 #root {
     min-height: 100vh;
 }
@@ -105,4 +109,14 @@ button {
     padding: 11px 44px;
     color : #FFF;
     border-radius: 30px;
+}
+
+.suggestion-item {
+    background-color: #0e0e0e;
+    padding : 5px 25px;
+    margin-right : 5px;
+    margin-left : 5px;
+    border-radius: 50px;
+    color : #fff;
+    cursor: pointer;
 }
