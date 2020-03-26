@@ -54,3 +54,4 @@ yarn test
     |_ styles               # Here you can place common styles for the application. 
     |_ utils                # Hre you can place common and simple library functions ( string replacers, validations, what you want)
 ```
+> **Author:** Jako 
